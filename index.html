@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jeu de Plateau</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+
+    <!--  css -->
+    <link rel="stylesheet" type="text/css" href="css/theme.css">
+
+
+</head>
+
+
+<body>
+
+    <!-- setting up the game grid and players cards -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 col-md-4 col-lg-4">
+                <button type="button" class="btn btn-danger">Lancer</br>le dé</button>
+                <button id="resultat" class="btn btn-primary"></button>
+                <button id="nbreCase" class="btn btn-primary"></button>
+                <div class="row">
+                    <!-- player 1 card -->
+                    <div class="col-sm-12">
+                        <div class="card hovercard">
+                            <div class="cardheader player1">
+                                <span id="carHeaderPlayer1"></span>
+                            </div>
+                            <div class="avatar">
+                                <img alt="" src="img/figurine_joueur_1.png">
+                            </div>
+                            <div class="info">
+                                <div class="title">
+                                    <a id='player1NameHtml'></a>
+                                </div>
+                                <div id="viePlayer1Html"></div>
+                                <div id="armePlayer1Html"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- END player 1 card -->
+
+                    <!-- player 2 card -->
+                    <div class="col-sm-12">
+                        <div class="card hovercard">
+                            <div class="cardheader player2">
+                                    <span id="carHeaderPlayer2"></span>
+                            </div>
+                            <div class="avatar">
+                                <img alt="" src="img/figurine_joueur_2.png">
+                            </div>
+                            <div class="info">
+                                <div class="title">
+                                    <a id='player2NameHtml'></a>
+                                </div>
+                                <div id="viePlayer2Html"></div>
+                                <div id="armePlayer2Html"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- END player 2 card -->
+
+
+
+
+                </div>
+            </div>
+            <div class="col-xs-8 col-md-8 col-lg-8">
+                <table class="table table-bordered">
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- end -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <!-- My own Javascript -->
+    <script type="text/javascript" src="js/settings.js"></script>
+    <script type="text/javascript" src="js/utils.js"></script>
+    <script type="text/javascript" src="js/grid-utils.js"></script>
+    <script type="text/javascript" src="js/holes-utils.js"></script>
+    <script type="text/javascript" src="js/init-player-utils.js"></script>
+    <script type="text/javascript" src="js/weapons-utils.js"></script>
+    <script type="text/javascript" src="js/play-utils.js"></script>
+    <script type="text/javascript" src="js/fights-utils.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+
+
+
+</body>
+
+</html>
