@@ -60,7 +60,7 @@ currentPlayer = getCurrentPlayer(player1, player2);*/
 // listening click td event
 $('td').on('click', function () {
   const element = $(this);
-  playerMove(element, currentPlayer, forbiddenIds);
+  playerMove(element, currentPlayer, forbiddenIds, generatedHoles);
   //generatedFights(currentPlayer, otherPlayer);
 });
 
