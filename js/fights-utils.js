@@ -21,9 +21,11 @@ function generatedFights(currentPlayer, otherPlayer) {
 
 
 
-
-
-
-
-
 };
+
+/*generatedWeapons = generatedWeapons.map((arme) => {
+  if(arme.name === name){
+    //Remplacer cette arme par celle du joueur
+  }
+  return arme
+})*/

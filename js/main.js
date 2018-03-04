@@ -17,6 +17,7 @@ let tabIds = [];
 let forbiddenIds = [];
 let currentPlayer = null;
 
+
 // generate array with id unique
 idUniqueCases(tabIds);
 
@@ -32,39 +33,34 @@ const generatedWeapons = generateWeapons(forbiddenIds);
 forbiddenIds = forbiddenIds.concat(generatedWeapons.map(weapon => weapon.id));
 
 // init player 1
-let player1 = initPlayer('player1', '#player1NameHtml', '#viePlayer1Html', '#armePlayer1Html', 'img/figurine_joueur_1.png', forbiddenIds);
+let player1 = initPlayer('player1', '#player1NameHtml', '#viePlayer1Html', '#armePlayer1Html', 'img/figurine_joueur_1.png',forbiddenIds);
 forbiddenIds = forbiddenIds.concat(player1.id);
 
 // init player 2
-let player2 = initPlayer('player2', '#player2NameHtml', '#viePlayer2Html', '#armePlayer2Html', 'img/figurine_joueur_2.png', forbiddenIds);
+let player2 = initPlayer('player2', '#player2NameHtml', '#viePlayer2Html', '#armePlayer2Html', 'img/figurine_joueur_2.png',forbiddenIds);
 forbiddenIds = forbiddenIds.concat(player2.id);
 
 // check if players are next to each other
-checkPlayersPosition(player1, player2);
+checkPlayersPosition(player1, player2,forbiddenIds);
 
-/*generatedWeapons = generatedWeapons.map((arme) => {
-  if(arme.name === name){
-    //Remplacer cette arme par celle du joueur
-  }
-  return arme
-})*/
+
 
 
 // for the first move
+changePlayerAtEachTurn();
+currentPlayer = getCurrentPlayer(player1, player2);
+console.log(currentPlayer);
 //currentPlayer = player1;
-const _players = changePlayer(player1, player2);
+/*const _players = changePlayer(player1, player2);
 player1 = _players.player1;
 player2 = _players.player2;
-currentPlayer = getCurrentPlayer(player1, player2);
-//changePlayerAtEachTurn();
+currentPlayer = getCurrentPlayer(player1, player2);*/
 
 
 // listening click td event
 $('td').on('click', function () {
   const element = $(this);
   playerMove(element, currentPlayer, forbiddenIds);
-  console.log(currentPlayer);
-  //console.log(otherPlayer);
   //generatedFights(currentPlayer, otherPlayer);
 });
 

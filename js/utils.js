@@ -14,7 +14,6 @@ function generateForbiddenIdsArray(id) {
   console.log(tabIdsInterdits);
 };*/
 
-
 // // generate array unique ids
 function idUniqueCases(array) {
   totalCases = col * row;

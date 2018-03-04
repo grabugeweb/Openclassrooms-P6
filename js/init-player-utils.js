@@ -8,7 +8,8 @@ function initPlayer(className, nameSelector, lifeSelector, armeSelector, avatar,
     vie: 100,
     ligne: playerData.lignePlayer,
     colonne: playerData.colonnePlayer,
-    arme: armes[0].name
+    arme: armes[0].name,
+    case_utilisee:0
   };
   $('#' + player.id).html(generatePlayerImage(player));
   $(nameSelector).text(player.name);
@@ -40,16 +41,16 @@ function generatePlayerImage(player) {
 }
 
 
-function checkPlayersPosition(player1, player2) {
+function checkPlayersPosition(player1, player2,forbiddenIds) {
   if ((player1.ligne == player2.ligne) && ((player1.colonne == player2.colonne - 1) || (player1.colonne == player2.colonne + 1))) {
-    clearPlayer2Position(player2);
+    clearPlayer2Position(player2,forbiddenIds);
   } else if ((player1.colonne == player2.colonne) && ((player1.ligne == player2.ligne - 1) || (player1.ligne == player2.ligne + 1))) {
-    clearPlayer2Position(player2);
+    clearPlayer2Position(player2,forbiddenIds);
   }
   ;
 }
 
-function clearPlayer2Position(player2) {
+function clearPlayer2Position(player2,forbiddenIds) {
   console.log('nettoyage');
   $('#' + player2.id).html('');
   forbiddenIds = forbiddenIds.splice(forbiddenIds.length, 1);

@@ -37,7 +37,6 @@ function generateWeapons(forbiddenIds) {
     armes[j].ligne = $('#' + idNumberWeapon).data('ligne');
     $('#' + idNumberWeapon).html(armes[j].avatar);
     weapons = weapons.concat(armes[j]);
-    console.log(weapons);
-  }
+  };
   return weapons;
 }
