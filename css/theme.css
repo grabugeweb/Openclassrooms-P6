@@ -209,11 +209,18 @@ span {
 /* Button
 ==================================================*/
 .btn, .btn danger {
-    width:100px;
-    height:100px;
+    width:109px;
+    height:109px;
 
 }
 
 #resultat, #nbreCase {
     font-size: 50px;
+    text-align: center;
+}
+
+
+
+.center{
+text-align: center;
 }

@@ -1,31 +1,27 @@
-function generatedFights(currentPlayer, otherPlayer) {
+function generatedFights(player, otherPlayer) {
+    if ((player1.ligne == player2.ligne) && ((player1.colonne == player2.colonne - 1) || (player1.colonne == player2.colonne + 1))) {
+        startFight(player, otherPlayer);
+    } else if ((player1.colonne == player2.colonne) && ((player1.ligne == player2.ligne - 1) || (player1.ligne == player2.ligne + 1))) {
+        startFight(player, otherPlayer);
+    };
+}
 
-    // Player meets weapon's case
-    for (let j = 0; j < 4; j++) {
-        if (currentPlayer.id == armes[j].id) {
-            // update currentPlayer object
-            
-            currentPlayer.arme = armes[j].name;
-            armes[j].id=currentPlayer.name;
-            
-            currentPlayer.arme = armes[j].name;
-            armes[j].id=currentPlayer.id;
-
-            $('#'+currentPlayer.id).fadeIn();
-
-            console.log(currentPlayer);
-            console.log(armes[j]);
-            // update weapon object
-        };
+function startFight(player, otherPlayer) {
+    $('#nbreCase').text('bat');
+    $('#resultat').text('com');
+    if ((player1.vie != 0) && (player2 != 0)) { //QUESTION il connait player 1 alors que l'on a passé uniquement player en arg 
+        selectAttackerDefender(player);
+        console.log(otherPlayer);
+        let weaponOtherPlayer=[]
+        weaponOtherPlayer = weaponOtherPlayer.concat(armes.find((a) => a == otherPlayer.name));
+        console.log(weaponOtherPlayer);
+        if (player.statut == 'defendre') {};
+        console.log('defendre');
     };
 
+    function selectAttackerDefender(player) {
+        const attackingOrDefending = prompt(player.name + ' : defendre ou attaquer ?');
+        player['statut'] = attackingOrDefending;
+    };
 
-
-};
-
-/*generatedWeapons = generatedWeapons.map((arme) => {
-  if(arme.name === name){
-    //Remplacer cette arme par celle du joueur
-  }
-  return arme
-})*/
+}

@@ -28,9 +28,11 @@ generateGrid(tabIds);
 const generatedHoles = generateHoles(forbiddenIds);
 forbiddenIds = forbiddenIds.concat(generatedHoles.map(hole => hole.idHole));
 
+
 // generate weapons
 const generatedWeapons = generateWeapons(forbiddenIds);
 forbiddenIds = forbiddenIds.concat(generatedWeapons.map(weapon => weapon.id));
+
 
 // init player 1
 let player1 = initPlayer('player1', '#player1NameHtml', '#viePlayer1Html', '#armePlayer1Html', 'img/figurine_joueur_1.png',forbiddenIds);
@@ -49,19 +51,13 @@ checkPlayersPosition(player1, player2,forbiddenIds);
 // for the first move
 changePlayerAtEachTurn();
 currentPlayer = getCurrentPlayer(player1, player2);
-console.log(currentPlayer);
-//currentPlayer = player1;
-/*const _players = changePlayer(player1, player2);
-player1 = _players.player1;
-player2 = _players.player2;
-currentPlayer = getCurrentPlayer(player1, player2);*/
+
 
 
 // listening click td event
 $('td').on('click', function () {
   const element = $(this);
   playerMove(element, currentPlayer, forbiddenIds, generatedHoles);
-  //generatedFights(currentPlayer, otherPlayer);
 });
 
 //  click event on button "lancer dé"

@@ -1,20 +1,6 @@
 let holes = [];
-// check if new coordonnate's personna is not a forbidden
-// apply this function to : generatePlayer () + generatePositionWeapon()
-// Return TRUE if the id is already present FALSE otherwise
-/*function checkForbiddencoordonnate(id) {
-  if (tabIdsInterdits) {
-    return tabIdsInterdits.indexOf(id) !== -1;
-  }
-  return false;
-};
 
-function generateForbiddenIdsArray(id) {
-  tabIdsInterdits.push(id);
-  console.log(tabIdsInterdits);
-};*/
 
-// // generate array unique ids
 function idUniqueCases(array) {
   totalCases = col * row;
   id = 0;
@@ -23,8 +9,7 @@ function idUniqueCases(array) {
     tabIds.push(id);
   };
   return array;
-};
-// end
+}
 
 function hasard() {
   const min = Math.ceil(1);
@@ -44,4 +29,4 @@ function getUniqPosition(forbiddenIds) {
 
 function lancerDe() {
   return Math.floor(Math.random() * Math.floor(3)) + 1
-};
+}

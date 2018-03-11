@@ -1,4 +1,4 @@
-const armes = [{
+let armes = [{
     name: 'épée',
     degats: 10,
     colonne: "",
@@ -30,7 +30,7 @@ const armes = [{
 
 function generateWeapons(forbiddenIds) {
   let weapons = [];
-  for (let j = 0; j < 4; j++) {
+  for (let j = 1; j < 4; j++) {
     const idNumberWeapon = getUniqPosition((j === 0) ? forbiddenIds : forbiddenIds.concat(weapons.map(w => w.id)));
     armes[j]['id'] = idNumberWeapon;
     armes[j].colonne = $('#' + idNumberWeapon).data('colonne');
