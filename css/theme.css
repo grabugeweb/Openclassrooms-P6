@@ -22,6 +22,13 @@
     height: 110%;
 }
 
+.armOn {
+    display: block;
+    margin:auto;
+    width:70%;
+    height: 70%;
+}
+
 .dede,
 .p,
 form {

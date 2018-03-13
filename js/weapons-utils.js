@@ -1,5 +1,12 @@
 let armes = [{
-    name: 'épée',
+    name: 'épée1',
+    degats: 10,
+    colonne: "",
+    ligne: "",
+    avatar: '<img class="weapon" id="épée" src="img/eppe.png">'
+  },
+  {
+    name: 'épée2',
     degats: 10,
     colonne: "",
     ligne: "",
@@ -30,7 +37,7 @@ let armes = [{
 
 function generateWeapons(forbiddenIds) {
   let weapons = [];
-  for (let j = 1; j < 4; j++) {
+  for (let j = 2; j <= 4; j++) {
     const idNumberWeapon = getUniqPosition((j === 0) ? forbiddenIds : forbiddenIds.concat(weapons.map(w => w.id)));
     armes[j]['id'] = idNumberWeapon;
     armes[j].colonne = $('#' + idNumberWeapon).data('colonne');

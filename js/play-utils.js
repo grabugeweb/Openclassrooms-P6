@@ -31,14 +31,14 @@ function changePlayerAtEachTurn() {
   const _players = changePlayer(player1, player2); //Changer de joueur
   player1 = _players.player1;
   player2 = _players.player2;
-  let currentPlayer = getCurrentPlayer(player1, player2);
-  let otherPlayer = (player1.playing) ? player2 : player1;
+  currentPlayer = getCurrentPlayer(player1, player2);
+  otherPlayer = (player1.playing) ? player2 : player1;
   $('.' + currentPlayer.class).addClass('activ');
   $('.' + otherPlayer.class).removeClass('activ');
 }
 
 
-function playerMove(element, player, forbiddenIds, holes) {
+function playerMove(element, player, otherPlayer, forbiddenIds, holes) {
   const coordonateEnd = {
     ligne: $(element).data('ligne'),
     colonne: $(element).data('colonne'),
@@ -62,7 +62,13 @@ function playerMove(element, player, forbiddenIds, holes) {
     player.ligne = coordonateEnd.ligne;
     player.colonne = coordonateEnd.colonne;
     player.case_utilisee = nbreCasesUtilisees;
-  }
+  };
+
+   // check if there is a weapon on case
+   ifWeaponIsOnCase(player);
+
+   // start Fight
+   generatedFights(player,otherPlayer);
 
   if ((nbreCasesUtilisees >= valeurDes) && (isMoveAllowed(player, coordonateEnd, forbiddenIds, valeurDes, nbreCasesUtilisees, holes))) {
     $('#nbreCase').text('');
@@ -71,17 +77,13 @@ function playerMove(element, player, forbiddenIds, holes) {
     changePlayerAtEachTurn();
     currentPlayer = getCurrentPlayer(player1, player2);
     otherPlayer = (player1.playing) ? player2 : player1;
-  }
+  };
 
-  // check if there is a weapon on case
-  ifWeaponIsOnCase(player);
-
-  // start Fight
-  generatedFights(player, otherPlayer);
+ 
 
   if (!(isMoveAllowed(player, coordonateEnd, forbiddenIds, valeurDes, nbreCasesUtilisees, holes))) {
     alert('Mauvais déplacement , Re-commence !!');
-  }
+  };
 
 }
 

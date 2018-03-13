@@ -7,7 +7,7 @@ function generateHoles(forbiddenIds) {
   };
   return holes;
 }
-console.log(holes); // QUESTION pourquoi le tableau est vide ?
+
 
 function initHole(forbiddenIds) {
   const idHole = getUniqPosition(forbiddenIds);

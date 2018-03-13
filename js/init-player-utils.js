@@ -1,4 +1,4 @@
-function initPlayer(className, nameSelector, lifeSelector, armeSelector, avatar, forbiddenIds) {
+function initPlayer(className, firstWeapon, nameSelector, lifeSelector, armeSelector, avatar, forbiddenIds) {
   const playerData = generatePlayer(forbiddenIds);
   const player = {
     id: playerData.idPlayer,
@@ -8,8 +8,10 @@ function initPlayer(className, nameSelector, lifeSelector, armeSelector, avatar,
     vie: 100,
     ligne: playerData.lignePlayer,
     colonne: playerData.colonnePlayer,
-    arme: armes[0].name,
-    case_utilisee: 0
+    arme: firstWeapon,
+    case_utilisee: 0,
+    infoWeapon:armeSelector,
+    infoLife:lifeSelector
   };
   $('#' + player.id).html(generatePlayerImage(player));
   $(nameSelector).text(player.name);

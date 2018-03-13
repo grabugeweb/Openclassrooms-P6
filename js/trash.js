@@ -37,3 +37,19 @@ function generateForbiddenIdsArray(id) {
   tabIdsInterdits.push(id);
   console.log(tabIdsInterdits);
 };*/
+
+
+/* QUESTION
+const variable ={
+  varaible1:{
+    param1:'ok',
+    param2:'ko'
+  }
+  varaible2:{
+    param1:'ok',
+    param2:'ko'
+  }
+}
+c'est un tableau ou un objet ?
+*/
+
