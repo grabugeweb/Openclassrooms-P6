@@ -62,13 +62,14 @@ function playerMove(element, player, otherPlayer, forbiddenIds, holes) {
     player.ligne = coordonateEnd.ligne;
     player.colonne = coordonateEnd.colonne;
     player.case_utilisee = nbreCasesUtilisees;
-  };
+  }
+  ;
 
-   // check if there is a weapon on case
-   ifWeaponIsOnCase(player);
+  // check if there is a weapon on case
+  ifWeaponIsOnCase(player);
 
-   // start Fight
-   generatedFights(player,otherPlayer);
+  // start Fight
+  generatedFights(player, otherPlayer);
 
   if ((nbreCasesUtilisees >= valeurDes) && (isMoveAllowed(player, coordonateEnd, forbiddenIds, valeurDes, nbreCasesUtilisees, holes))) {
     $('#nbreCase').text('');
@@ -77,13 +78,12 @@ function playerMove(element, player, otherPlayer, forbiddenIds, holes) {
     changePlayerAtEachTurn();
     currentPlayer = getCurrentPlayer(player1, player2);
     otherPlayer = (player1.playing) ? player2 : player1;
-  };
+  }
 
- 
 
   if (!(isMoveAllowed(player, coordonateEnd, forbiddenIds, valeurDes, nbreCasesUtilisees, holes))) {
     alert('Mauvais déplacement , Re-commence !!');
-  };
+  }
 
 }
 
