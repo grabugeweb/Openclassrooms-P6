@@ -38,34 +38,33 @@ function changePlayerAtEachTurn() {
 }
 
 
-function playerMove(element, player, otherPlayer, forbiddenIds, holes,valeurDes) {
+function playerMove(element, player, otherPlayer, forbiddenIds, holes, pValeurDes, pArmes) {
   const coordonateEnd = {
     ligne: $(element).data('ligne'),
     colonne: $(element).data('colonne'),
     id: $(element).attr('id')
-  } 
+  };
   let nbreCasesLignesUtilisees = Math.abs(player.ligne - coordonateEnd.ligne);
   let nbreCasesColonnesUtilisees = Math.abs(player.colonne - coordonateEnd.colonne);
   let nbreCasesUtilisees = player.case_utilisee + Math.abs(nbreCasesLignesUtilisees + nbreCasesColonnesUtilisees);
 
-  if (isMoveAllowed(player, coordonateEnd, forbiddenIds, valeurDes, nbreCasesUtilisees, holes,valeurDes)) {
+  if (isMoveAllowed(player, coordonateEnd, forbiddenIds, pValeurDes, nbreCasesUtilisees, holes,pValeurDes)) {
     $(`#${player.id} .player`).remove();
     player.id = coordonateEnd.id;
     $('#' + player.id).html('<img class="player" src=' + player.avatar + '>');
-    $('#nbreCase').text(valeurDes - nbreCasesUtilisees);
+    $('#nbreCase').text(pValeurDes - nbreCasesUtilisees);
     player.ligne = coordonateEnd.ligne;
     player.colonne = coordonateEnd.colonne;
     player.case_utilisee = nbreCasesUtilisees;
   }
-  ;
 
   // check if there is a weapon on case
-  ifWeaponIsOnCase(player);
+  ifWeaponIsOnCase(player, pArmes);
 
   // start Fight
   generatedFights(player, otherPlayer);
 
-  if ((nbreCasesUtilisees >= valeurDes) && (isMoveAllowed(player, coordonateEnd, forbiddenIds, valeurDes, nbreCasesUtilisees, holes))) {
+  if ((nbreCasesUtilisees >= pValeurDes) && (isMoveAllowed(player, coordonateEnd, forbiddenIds, pValeurDes, nbreCasesUtilisees, holes))) {
     $('#nbreCase').text('');
     $('#resultat').text('');
     player.case_utilisee = 0;
@@ -75,13 +74,13 @@ function playerMove(element, player, otherPlayer, forbiddenIds, holes,valeurDes)
   }
 
 
-  if (!(isMoveAllowed(player, coordonateEnd, forbiddenIds, valeurDes, nbreCasesUtilisees, holes))) {
+  if (!(isMoveAllowed(player, coordonateEnd, forbiddenIds, pValeurDes, nbreCasesUtilisees, holes))) {
     alert('Mauvais déplacement , Re-commence !!');
   }
 
 }
 
-function isMoveAllowed(player, coordonateEnd, forbiddenIds, valeurDes, nbreCasesUtilisees, holes,valeurDes) {
+function isMoveAllowed(player, coordonateEnd, forbiddenIds, pValeurDes, nbreCasesUtilisees, holes) {
   const {
     ligne,
     colonne,
@@ -102,7 +101,7 @@ function isMoveAllowed(player, coordonateEnd, forbiddenIds, valeurDes, nbreCases
     y: coordonateEnd.ligne
   }, holes));
   //Move has to be inside value dé
-  isAllowedConditions = isAllowedConditions.concat(nbreCasesUtilisees <= valeurDes);
+  isAllowedConditions = isAllowedConditions.concat(nbreCasesUtilisees <= pValeurDes);
   // return true and false : when reduce meets false --> player stop
   return isAllowedConditions.reduce((acc, curr) => (!acc) ? acc : curr, true); // permet de ramener à une seule valeur
 }
