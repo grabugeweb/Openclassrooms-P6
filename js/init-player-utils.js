@@ -21,7 +21,7 @@ function initPlayer(className, firstWeapon, nameSelector, lifeSelector, armeSele
 }
 
 function generateNamePlayer() {
-  return prompt("nom du joueur ?");
+  return prompt("Prénom du joueur ?");
 }
 
 // generate variables for players : name, id, lignePlayer, colonnePlayer

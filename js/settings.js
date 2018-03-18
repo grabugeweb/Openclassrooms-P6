@@ -1,10 +1,5 @@
 // global variables
-var valeurDes; // persona.js
-
-
-// Number of Holes
-const numberOfHoles = 6;
-
+//var valeurDes;
 
 // number of columns
 const col = 7;

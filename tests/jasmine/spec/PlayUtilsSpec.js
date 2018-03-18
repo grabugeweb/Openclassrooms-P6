@@ -1,4 +1,4 @@
-describe("PlayUtils", function() {
+describe("PlayUtils test", function() {
 
   it('should change the player by setting the playing attribute to true or false', () => {
     const p1 = { id: '1', name: 'Laurent', playing: false };
@@ -19,5 +19,4 @@ describe("PlayUtils", function() {
     expect(isHorizontalMove({ x: 1, y: 2 }, { x: 3, y: 2 })).toBe(true);
     expect(isHorizontalMove({ x: 1, y: 2 }, { x: 3, y: 3 })).toBe(false);
   });
-
 });

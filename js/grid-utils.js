@@ -1,4 +1,4 @@
-function generateGrid(tabIds) { // generate grid
+function generateGrid(tabIds) { 
   for (let i = 1; i <= row; i++) {
     const tr = $('<tr/>');
     tr.appendTo($('table'));

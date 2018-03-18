@@ -53,3 +53,12 @@ const variable ={
 c'est un tableau ou un objet ?
 */
 
+//`${$(element).data('ligne')};${$(element).data('colonne')}`;
+  //const coordonateEndLigne = $(element).data('ligne');
+  //const coordonateEndColonne = $(element).data('colonne');
+
+
+
+  //const allowedCoordonates = getAllowedMoves();
+  //const isAuthorized = allowedCoordonates.find((c) => coordonateEnd === c);
+  //player= idCurrentPlayer.concat(player.id); MARCHE PAS ?????

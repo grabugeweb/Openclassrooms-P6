@@ -1,6 +1,3 @@
-let holes = [];
-
-
 function idUniqueCases(array) {
   totalCases = col * row;
   id = 0;
@@ -13,7 +10,7 @@ function idUniqueCases(array) {
 
 function hasard() {
   const min = Math.ceil(1);
-  const max = Math.ceil(36);
+  const max = Math.ceil(row*col);
   return Math.floor(Math.random() * (max - min)) + min;
 }
 

@@ -38,23 +38,17 @@ function changePlayerAtEachTurn() {
 }
 
 
-function playerMove(element, player, otherPlayer, forbiddenIds, holes) {
+function playerMove(element, player, otherPlayer, forbiddenIds, holes,valeurDes) {
   const coordonateEnd = {
     ligne: $(element).data('ligne'),
     colonne: $(element).data('colonne'),
     id: $(element).attr('id')
-  } //`${$(element).data('ligne')};${$(element).data('colonne')}`;
-  //const coordonateEndLigne = $(element).data('ligne');
-  //const coordonateEndColonne = $(element).data('colonne');
+  } 
   let nbreCasesLignesUtilisees = Math.abs(player.ligne - coordonateEnd.ligne);
   let nbreCasesColonnesUtilisees = Math.abs(player.colonne - coordonateEnd.colonne);
   let nbreCasesUtilisees = player.case_utilisee + Math.abs(nbreCasesLignesUtilisees + nbreCasesColonnesUtilisees);
 
-
-  //const allowedCoordonates = getAllowedMoves();
-  //const isAuthorized = allowedCoordonates.find((c) => coordonateEnd === c);
-  //player= idCurrentPlayer.concat(player.id); MARCHE PAS ?????
-  if (isMoveAllowed(player, coordonateEnd, forbiddenIds, valeurDes, nbreCasesUtilisees, holes)) {
+  if (isMoveAllowed(player, coordonateEnd, forbiddenIds, valeurDes, nbreCasesUtilisees, holes,valeurDes)) {
     $(`#${player.id} .player`).remove();
     player.id = coordonateEnd.id;
     $('#' + player.id).html('<img class="player" src=' + player.avatar + '>');
@@ -87,7 +81,7 @@ function playerMove(element, player, otherPlayer, forbiddenIds, holes) {
 
 }
 
-function isMoveAllowed(player, coordonateEnd, forbiddenIds, valeurDes, nbreCasesUtilisees, holes) {
+function isMoveAllowed(player, coordonateEnd, forbiddenIds, valeurDes, nbreCasesUtilisees, holes,valeurDes) {
   const {
     ligne,
     colonne,
