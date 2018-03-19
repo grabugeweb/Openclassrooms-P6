@@ -4,13 +4,13 @@ function idUniqueCases(array) {
   for (i = 0; i < totalCases; i++) {
     id++;
     tabIds.push(id);
-  };
+  }
   return array;
 }
 
 function hasard() {
   const min = Math.ceil(1);
-  const max = Math.ceil(row*col);
+  const max = Math.ceil(row*col) + 1;
   return Math.floor(Math.random() * (max - min)) + min;
 }
 

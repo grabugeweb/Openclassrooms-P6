@@ -1,5 +1,5 @@
-function ifWeaponIsOnCase(player) {
-    const armeFound = findArmeById(player.id);
+function ifWeaponIsOnCase(player, armes) {
+    const armeFound = findArmeById(armes, player.id);
     if (armeFound) {
         changeArmes(player, armeFound);
     }
@@ -28,13 +28,13 @@ function findArmeByName(armeName) {
     return Object.assign({}, armes.find((arme) => arme.name === armeName)); // Retourne une copie de l'objet arme et non pas l'arme directement
 }
 
-function findArmeById(armeId) {
-    //Renommage des ids des armes et des players en caseId
-    const armeFound = armes.find((arme) => arme.id == armeId);
-    if (armeFound) {
-        return Object.assign({}, armeFound); // Retourne une copie de l'objet arme et non pas l'arme directement
-    }
-    return null;
+function findArmeById(armes, armeId) {
+  //Renommage des ids des armes et des players en caseId
+  const armeFound = armes.find((arme) => arme.id == armeId);
+  if (armeFound) {
+    return Object.assign({}, armeFound); // Retourne une copie de l'objet arme et non pas l'arme directement
+  }
+  return null;
 }
 
 function updateArmesDOM(oldWeaponPlayer,player) {
@@ -43,7 +43,7 @@ function updateArmesDOM(oldWeaponPlayer,player) {
     $('td[id=' + oldWeaponPlayer.id + '] .weapon').addClass('armOn');
     $('td[id=' + oldWeaponPlayer.id + '] .player').addClass('armOn');
     $(player.infoWeapon).text("Type d'arme : " + player.arme);
-   
+
 }
 
 function updateArmesInArmsArray(arme) {
