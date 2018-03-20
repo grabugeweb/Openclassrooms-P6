@@ -1,4 +1,4 @@
-function generateGrid(tabIds) { 
+function generateGrid(tabIds,rowGrid,colGrid) { 
   for (let i = 1; i <= row; i++) {
     const tr = $('<tr/>');
     tr.appendTo($('table'));
@@ -7,7 +7,7 @@ function generateGrid(tabIds) {
       td.appendTo(tr).addClass('celluleCss');
     }
   }
-  for (let o = 0; o < (row * col); o++) {
+  for (let o = 0; o < (rowGrid * colGrid); o++) {
     $($($('td')[o])).attr('id', tabIds[o]);
   }
 }

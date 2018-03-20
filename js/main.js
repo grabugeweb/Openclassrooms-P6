@@ -3,6 +3,12 @@ let forbiddenIds = [];
 let currentPlayer = null;
 let otherPlayer = null;
 let valeurDes = null;
+// number of columns
+const col = 7;
+// Number of rows
+const row = 7;
+// Number of Holes
+const numberOfHoles = 6;
 
 let armes = [{
   name: 'épée1',
@@ -46,10 +52,9 @@ let armes = [{
 idUniqueCases(tabIds);
 
 // generate grid and cases
-generateGrid(tabIds);
+generateGrid(tabIds,row,col);
 
 // generate holes
-const numberOfHoles = 6;
 const generatedHoles = generateHoles(forbiddenIds, numberOfHoles);
 forbiddenIds = forbiddenIds.concat(generatedHoles.map(hole => hole.idHole));
 
@@ -84,6 +89,6 @@ $('button').on('click', function () {
   valeurDes = lancerDe();
   $('#resultat').text(valeurDes);
   $('#nbreCase').text(valeurDes);
-  return valeurDes; //???
+  return valeurDes;
 });
 

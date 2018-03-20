@@ -20,7 +20,7 @@ function startFight(player, otherPlayer) {
             currentPlayer = getCurrentPlayer(player1, player2);
             otherPlayer = (player1.playing) ? player2 : player1;
             startFight(currentPlayer, otherPlayer);
-          }, 100)
+          }, 300)
         }
     }
 }
@@ -39,10 +39,8 @@ function findPlayerArm(player, otherPlayer) {
 function fight(player, otherPlayer, { arme1, arme2 }) {
     if (player.statut === 'defendre') {
         player.vie = player.vie - (arme2.degats / 2);
-        console.log('player ' + player.vie);
     } else {
         otherPlayer.vie = otherPlayer.vie - (arme1.degats);
-        console.log('other player ' + otherPlayer.vie);
     }
     $(player.infoLife).text("Points de vie : " + player.vie);
     $(otherPlayer.infoLife).text("Points de vie : " + otherPlayer.vie);

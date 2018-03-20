@@ -28,7 +28,7 @@ function getCurrentPlayer(player1, player2) {
 }
 
 function changePlayerAtEachTurn() {
-  const _players = changePlayer(player1, player2); //Changer de joueur
+  const _players = changePlayer(player1, player2); 
   player1 = _players.player1;
   player2 = _players.player2;
   currentPlayer = getCurrentPlayer(player1, player2);
@@ -85,7 +85,7 @@ function isMoveAllowed(player, coordonateEnd, forbiddenIds, pValeurDes, nbreCase
     ligne,
     colonne,
     id
-  } = coordonateEnd; // je destructure la variable qui a été groupée avec 3 sous variables pour la fair reapparaitre avec ses 3 sous variables
+  } = coordonateEnd; // je destructure la variable qui a été groupée avec 3 sous variables pour la faire reapparaitre avec ses 3 sous variables
   let isAllowedConditions = []; // construire un tableau pour stocker les ok déplacements
   //Move diagonally
   isAllowedConditions = isAllowedConditions.concat(!(player.ligne !== ligne && player.colonne !== colonne));

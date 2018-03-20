@@ -52,7 +52,6 @@ function checkPlayersPosition(player1, player2, forbiddenIds) {
 }
 
 function clearPlayer2Position(player2, forbiddenIds) {
-  console.log('nettoyage');
   $('#' + player2.id).html('');
   forbiddenIds = forbiddenIds.filter((idplayer2) => idplayer2 <= numberOfHoles + 5);
   player2 = initPlayer('#player2NameHtml', '#viePlayer2Html', '#armePlayer2Html', 'img/figurine_joueur_2.png', forbiddenIds);
