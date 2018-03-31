@@ -12,4 +12,13 @@ describe("ChangeArms test", function () {
     expect(findArmeById(armes, 'weapon1')).toEqual({id: 'weapon1'});
   });
 
+  it('should return a weapon object when calling findArmeByName', function ()  {
+    armes=[{name:'laser'},{name:'pioche'}];
+    expect(findArmeByName('laser')).toEqual({name:'laser'});
+  });
+
+  it('should return update array armes when calling updateArmesInArmsArray',() => {
+
+  });
+
 });

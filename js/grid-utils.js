@@ -1,19 +1,19 @@
-function generateGrid(tabIds,rowGrid,colGrid) { 
+function generateGrid(tabIds,rowGrid,colGrid) {
+  let id=0; 
   for (let i = 1; i <= row; i++) {
     const tr = $('<tr/>');
     tr.appendTo($('table'));
     for (let j = 1; j <= col; j++) {
-      const td = createTD(i, j);
+      const td = createTD(id,i, j);
+      id+=1;
       td.appendTo(tr).addClass('celluleCss');
     }
   }
-  for (let o = 0; o < (rowGrid * colGrid); o++) {
-    $($($('td')[o])).attr('id', tabIds[o]);
-  }
 }
 
-function createTD(ligne, colonne) {
+function createTD(id,ligne, colonne) {
   const td = $('<td/>'); 
+  td.attr('id',id);
   td.attr('data-ligne', ligne);
   td.attr('data-colonne', colonne);
   return td;

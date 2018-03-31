@@ -1,5 +1,5 @@
 function changePlayer(player1, player2) {
-  if (player1.playing) {
+  if (player1.playing) { // on crée à ce moment là l'atrribut playing de l'objet et donc player1.playing = true
     return {
       player1: Object.assign({}, player1, {
         playing: false
@@ -21,7 +21,7 @@ function changePlayer(player1, player2) {
 }
 
 function getCurrentPlayer(player1, player2) {
-  if (player1.playing) {
+  if (player1.playing) { // puis on regarde si player1 = true ou false, suite au passage de la fte changePlayer
     return player1;
   }
   return player2;
@@ -86,7 +86,7 @@ function isMoveAllowed(player, coordonateEnd, forbiddenIds, pValeurDes, nbreCase
     colonne,
     id
   } = coordonateEnd; // je destructure la variable qui a été groupée avec 3 sous variables pour la faire reapparaitre avec ses 3 sous variables
-  let isAllowedConditions = []; // construire un tableau pour stocker les ok déplacements
+  let isAllowedConditions = []; // construire un tableau pour stocker les ok déplacements qui sont alors = à true
   //Move diagonally
   isAllowedConditions = isAllowedConditions.concat(!(player.ligne !== ligne && player.colonne !== colonne));
   //Check if click is not on a hole
@@ -110,7 +110,7 @@ function isMoveAllowed(player, coordonateEnd, forbiddenIds, pValeurDes, nbreCase
 // Object, Object, Array<Hole> -> Boolean
 function hasHoleInDeplacement(startCoordonate, endCoordonate, holes) {
   if (isHorizontalMove(startCoordonate, endCoordonate)) { //attribut colonne des trous dans l'interval de déplacement
-    const sortedCordonnates = [startCoordonate, endCoordonate].sort((a, b) => a.x > b.x); // trier dans l'odre croissant // QUESTION sur la syntaxe [startCoordonate, endCoordonate]
+    const sortedCordonnates = [startCoordonate, endCoordonate].sort((a, b) => a.x > b.x); // trier dans l'odre croissant 
     return holes
       .filter((hole) => hole.ligneHole === startCoordonate.y) //On filtre les trous qui sont sur la meme ligne que le joueur --> Cela retourne un nouveau tableau
       .filter((hole) => hole.colonneHole > sortedCordonnates[0].x && hole.colonneHole < sortedCordonnates[1].x) //On filtre à nouveau sur le résultat du premier filtre les trous qui sont dans la trajectoire du déplacement
